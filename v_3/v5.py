@@ -59,3 +59,5 @@ for angle in angles:
     print(f"Saved {filename}")
 
 plt.show()
+
+#ive done this when i was dump<3.
