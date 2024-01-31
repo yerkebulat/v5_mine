@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,10 +16,10 @@ y_train = train_data['Cu']
 
 X_train_split, X_val, y_train_split, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
 
-rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
-rf_model.fit(X_train_split, y_train_split)
+ridge_model = Ridge(alpha=1.0)
+ridge_model.fit(X_train_split, y_train_split)
 
-predicted_values = rf_model.predict(test_data[['X', 'Y']])
+predicted_values = ridge_model.predict(test_data[['X', 'Y']])
 
 actual_values = actual_data['Cu']
 
@@ -35,7 +35,7 @@ ax.scatter(test_data['X'], test_data['Y'], predicted_values, c=predicted_values,
 
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
-ax.set_zlabel('Copper Concentration')
+#ax.set_zlabel('Copper Concentration')
 ax.legend()
 
 desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
@@ -44,7 +44,7 @@ image_folder = os.path.join(desktop_path, '3D_Plots')
 if not os.path.exists(image_folder):
     os.makedirs(image_folder)
 
-angles = [0, 45, 90, 135, 180, 270]
+angles = [0, 90, 180, 270, 45, 135, 225, 315]
 
 for angle in angles:
     if angle == 0 or angle == 180:  
@@ -53,7 +53,7 @@ for angle in angles:
         ax.view_init(elev=-90, azim=angle)
     else:
         ax.view_init(elev=20, azim=angle)
-    filename = f'3D_Plot_Angle_{angle}.png'
+    filename = f'Ridge_3D_Plot_Map_{angle}.png'
     filepath = os.path.join(image_folder, filename)
     plt.savefig(filepath)
     print(f"Saved {filename}")
