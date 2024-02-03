@@ -14,4 +14,6 @@ heatmap = sns.heatmap(actual_data["Cu"].values.reshape(1000, 1000),
                       square=True,
                       cbar_kws={"label": "Cu Concentration"})
 plt.title("Copper Concentration Heatmap (Real-world values)")
+plt.xlabel("X")
+plt.ylabel("Y")
 plt.show()
