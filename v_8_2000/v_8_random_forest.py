@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
 
 train_data = pd.read_excel("data_for_Test_and_Train.xlsx", sheet_name="Original")
-sampled_data = train_data.sample(frac=0.01, random_state=42)
+sampled_data = train_data.sample(frac=0.002, random_state=42)
 sampled_data['X'] = pd.to_numeric(sampled_data['X'], errors='coerce')
 sampled_data['Y'] = pd.to_numeric(sampled_data['Y'], errors='coerce')
 
@@ -47,7 +47,7 @@ heatmap = sns.heatmap(predicted_values_mesh,
                       vmax=1.0,
                       square=True,
                       cbar_kws={"label": "Cu Concentration"})
-plt.title("Copper Concentration Heatmap (Predicted values - Random Forest Regression + GridSearchCV)")
+plt.title("Copper Concentration Heatmap (Predicted values (2000 points provided) - Random Forest Regression + GridSearchCV)")
 plt.xlabel("X")
 plt.ylabel("Y")
 
