@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import GridSearchCV
 
 train_data = pd.read_excel("data_for_Test_and_Train.xlsx", sheet_name="Original")
-sampled_data = train_data.sample(frac=0.005, random_state=42)
+sampled_data = train_data.sample(frac=0.008, random_state=42)
 sampled_data['X'] = pd.to_numeric(sampled_data['X'], errors='coerce')
 sampled_data['Y'] = pd.to_numeric(sampled_data['Y'], errors='coerce')
 
@@ -43,7 +43,7 @@ heatmap = sns.heatmap(predicted_values_mesh,
                       vmax=1.0,
                       square=True,
                       cbar_kws={"label": "Cu Concentration"})
-plt.title("Copper Concentration Heatmap (Predicted values (5000 points provided) - K-Nearest Neighbors Regression + GridSearchCV)")
+plt.title("Copper Concentration Heatmap (Predicted values (8000 points provided) - K-Nearest Neighbors Regression + GridSearchCV)")
 plt.xlabel("X")
 plt.ylabel("Y")
 
