@@ -5,9 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score
 
-
 train_data = pd.read_excel("data_for_Test_and_Train.xlsx", sheet_name="Original")
-sampled_data = train_data.sample(frac=0.01, random_state=42)
+sampled_data = train_data.sample(frac=0.002, random_state=42)
 sampled_data['X'] = pd.to_numeric(sampled_data['X'], errors='coerce')
 sampled_data['Y'] = pd.to_numeric(sampled_data['Y'], errors='coerce')
 
@@ -31,8 +30,7 @@ mse = mean_squared_error(y_train, y_pred)
 print(f"Mean Squared Error: {mse}")
 r_squared = r2_score(y_train, y_pred)
 print(f"R-squared Value: {r_squared}")
-correlation_coefficient = np.corrcoef(y_train, y_pred)[0, 1]
-print(f"Correlation Coefficient: {correlation_coefficient}")
+
 plt.figure(figsize=(10, 8))
 heatmap = sns.heatmap(predicted_values_mesh,
                       cmap=cmap,

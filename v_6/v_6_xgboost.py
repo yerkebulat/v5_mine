@@ -30,6 +30,8 @@ mse_xgb = mean_squared_error(y_train, y_pred_xgb)
 print(f"Mean Squared Error (XGBoost): {mse_xgb}")
 r_squared_xgb = r2_score(y_train, y_pred_xgb)
 print(f"R-squared Value (XGBoost): {r_squared_xgb}")
+correlation_coefficient = np.corrcoef(y_train, y_pred_xgb)[0, 1]
+print(f"Correlation Coefficient: {correlation_coefficient}")
 plt.figure(figsize=(10, 8))
 heatmap = sns.heatmap(predicted_values_mesh,
                       cmap=cmap,

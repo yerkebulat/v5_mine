@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 
 models = ['k-nearest neighbors', 'Random Forest', 'XGBoost']
-scores = [0.8610558611723814, 0.9652627914662635, 0.7902961117986591]
-scores1 = [0.8473761719301216, 0.9617829908205189, 0.8101026547811068]
-scores2 = [0.8080778792368595, 0.9510181912242094, 0.8231386559589714]
-scores3 = [0.6996370087830981, 0.9228469851450382, 0.9049044416229681]
+scores = [0.9286561501105778,  0.985537859063075, 0.897371367214794]
+scores1 = [0.9214541425967018, 0.9843394252412851, 0.9091167259580043]
+scores2 = [0.90031300251671, 0.9809601910757222, 0.9179959891773721]
+scores3 = [0.8383134718156167, 0.9731876668739172, 0.9594986772882295]
 
 scores = [score * 100 for score in scores]
 scores1 = [score * 100 for score in scores1]
@@ -18,8 +18,8 @@ plt.plot(models, scores1, marker='o', linestyle='-', color='green', label='8000 
 plt.plot(models, scores2, marker='o', linestyle='-', color='red', label='5000 points')
 plt.plot(models, scores3, marker='o', linestyle='-', color='orange', label='2000 points')
 
-plt.title('R-squared score (coefficient of determination)')
-plt.xlabel('Regression Models')
+plt.title('Correlation coefficient between the reference and estimated maps')
+plt.xlabel('Correlation coefficient')
 plt.ylabel('Scores, %')
 plt.grid(True)
 plt.legend()
