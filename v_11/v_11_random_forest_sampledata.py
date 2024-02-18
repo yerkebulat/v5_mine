@@ -31,7 +31,7 @@ heatmap = sns.heatmap(predicted_values_mesh,
                       vmax=1.0,
                       square=True,
                       cbar_kws={"label": "Cu Concentration"})
-plt.title("Copper Concentration Heatmap (Predicted values) - Random Forest Regression")
+plt.title("Sample Data - Copper Concentration Heatmap (Predicted values) - Random Forest Regression")
 plt.xlabel("X")
 plt.ylabel("Y")
 
