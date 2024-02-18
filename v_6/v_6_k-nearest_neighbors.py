@@ -6,7 +6,7 @@ import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score
 
 train_data = pd.read_excel("data_for_Test_and_Train.xlsx", sheet_name="Original")
-sampled_data = train_data.sample(frac=0.002, random_state=42)
+sampled_data = train_data.sample(frac=0.01, random_state=42)
 sampled_data['X'] = pd.to_numeric(sampled_data['X'], errors='coerce')
 sampled_data['Y'] = pd.to_numeric(sampled_data['Y'], errors='coerce')
 
@@ -26,11 +26,7 @@ predicted_values = knn_model.predict(points_to_predict)
 predicted_values_mesh = predicted_values.reshape(1000, 1000)
 cmap = sns.diverging_palette(240, 10, as_cmap=True)
 mse_knn = mean_squared_error(y_train, y_pred_knn)
-print(f"Mean Squared Error (K-Nearest Neighbors): {mse_knn}")
-r_squared_knn = r2_score(y_train, y_pred_knn)
-print(f"R-squared Value (K-Nearest Neighbors): {r_squared_knn}")
-correlation_coefficient = np.corrcoef(y_train, y_pred_knn)[0, 1]
-print(f"Correlation Coefficient: {correlation_coefficient}")
+
 plt.figure(figsize=(10, 8))
 heatmap = sns.heatmap(predicted_values_mesh,
                       cmap=cmap,

@@ -27,12 +27,7 @@ predicted_values = rf_model.predict(points_to_predict)
 predicted_values_mesh = predicted_values.reshape(1000, 1000)
 cmap = sns.diverging_palette(240, 10, as_cmap=True)
 y_pred = rf_model.predict(X_train)
-mse = mean_squared_error(y_train, y_pred)
-print(f"Mean Squared Error: {mse}")
-r_squared = r2_score(y_train, y_pred)
-print(f"R-squared Value: {r_squared}")
-correlation_coefficient = np.corrcoef(y_train, y_pred)[0, 1]
-print(f"Correlation Coefficient: {correlation_coefficient}")
+
 plt.figure(figsize=(10, 8))
 heatmap = sns.heatmap(predicted_values_mesh,
                       cmap=cmap,

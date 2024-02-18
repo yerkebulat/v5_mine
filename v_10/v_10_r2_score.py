@@ -17,10 +17,10 @@ plt.plot(models, scores, marker='o', linestyle='-', color='blue', label='10000 p
 plt.plot(models, scores1, marker='o', linestyle='-', color='green', label='8000 points')
 plt.plot(models, scores2, marker='o', linestyle='-', color='red', label='5000 points')
 plt.plot(models, scores3, marker='o', linestyle='-', color='orange', label='2000 points')
-
+print("pp")
 plt.title('R-squared score (coefficient of determination)')
 plt.xlabel('Regression Models')
-plt.ylabel('Scores, %')
+plt.ylabel('Score, %')
 plt.grid(True)
 plt.legend()
 plt.show()

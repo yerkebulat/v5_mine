@@ -6,7 +6,7 @@ import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score
 
 train_data = pd.read_excel("data_for_Test_and_Train.xlsx", sheet_name="Original")
-sampled_data = train_data.sample(frac=0.002, random_state=42)
+sampled_data = train_data.sample(frac=0.01, random_state=42)
 sampled_data['X'] = pd.to_numeric(sampled_data['X'], errors='coerce')
 sampled_data['Y'] = pd.to_numeric(sampled_data['Y'], errors='coerce')
 

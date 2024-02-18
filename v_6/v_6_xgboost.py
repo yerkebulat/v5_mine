@@ -27,11 +27,7 @@ predicted_values = xgb_model.predict(points_to_predict)
 predicted_values_mesh = predicted_values.reshape(1000, 1000)
 cmap = sns.diverging_palette(240, 10, as_cmap=True)
 mse_xgb = mean_squared_error(y_train, y_pred_xgb)
-print(f"Mean Squared Error (XGBoost): {mse_xgb}")
-r_squared_xgb = r2_score(y_train, y_pred_xgb)
-print(f"R-squared Value (XGBoost): {r_squared_xgb}")
-correlation_coefficient = np.corrcoef(y_train, y_pred_xgb)[0, 1]
-print(f"Correlation Coefficient: {correlation_coefficient}")
+
 plt.figure(figsize=(10, 8))
 heatmap = sns.heatmap(predicted_values_mesh,
                       cmap=cmap,
