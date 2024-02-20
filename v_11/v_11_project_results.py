@@ -1,0 +1,1 @@
+print('so ive finished my first ml+mining project. i have succesfully worked with synthetic data and find out best regression model for the mineral resources estimation. im eager to start a work with real-world data, and belive that this is just begining. because 1 is more than 0, in the long term im in right path')
